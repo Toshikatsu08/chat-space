@@ -37,3 +37,12 @@
 ### Association
 - has_many :groups_tags
 - has_many :groups, through: :groups_tags
+
+## groups_tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null: false, foreign key: true|
+|tag_id|integer|null: false, foreign key: true|
+### Association
+- belongs_to :group
+- belongs_to :tag
