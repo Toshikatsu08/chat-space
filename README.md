@@ -29,3 +29,11 @@
 - belongs_to :user
 - has_many :groups_tags
 - has_many :tags, through: :groups_tags
+
+## tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+### Association
+- has_many :groups_tags
+- has_many :groups, through: :groups_tags
