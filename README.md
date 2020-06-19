@@ -25,7 +25,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true, add_index :users, :username|
 ### Association
 - belongs_to :user
 - has_many :groups_tags
