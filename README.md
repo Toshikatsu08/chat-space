@@ -32,7 +32,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |body|text|
-|image|string|
+|image|text|
 |user_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key: true|
 ### Association
