@@ -1,0 +1,26 @@
+.MainChat
+  .MainChat__header
+    .MainChat__leftbox
+      %p.CurrentGroup test
+      %ul.MainChat__MemberList
+        %li.MainChat__Member: Member：
+        %li.MainChat__name masa
+    = link_to "#", class: "MainChat__edit" do
+      Edit
+  .MainChat__contents
+    .MainChat__MessageBox
+      .MessageInfo
+        %p.MessageInfo__name masa
+        %p.MessageInfo__date 2019/11/20(Wed) 17:43:01
+      .MessageContent おはよう！
+      
+
+  .Form
+    %form.Form__contents
+      .inputBox
+        %input.Form__inputText{ placeholder: "type a message", type: "text"}
+        %label{class: "inputBox__image"}
+          = icon('fas', 'image', class: "icon")
+          %input.Form__file{type: "file"}
+      %input.Form__submitBtn{type: "submit", value: "Send"}
+    
