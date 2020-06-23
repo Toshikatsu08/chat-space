@@ -1,11 +1,12 @@
 .SideBar
   .SideBar__header
     .SideBar__sidebox
-      %p.UserName masa
+      %p.UserName 
+        = current_user.name
       .SideBar__icons 
         = link_to "#", class: "SideBar__btn" do
           = icon('far', 'edit')
-        =link_to "#", class: "SideBar__btn" do
+        =link_to edit_user_path(current_user), class: "SideBar__btn" do
           = icon('fas', 'cog')
   .SideBar__contents
     .SideBar__group
