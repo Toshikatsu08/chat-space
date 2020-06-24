@@ -4,12 +4,14 @@
       %p.UserName 
         = current_user.name
       .SideBar__icons 
-        = link_to "#", class: "SideBar__btn" do
+        = link_to new_group_path(current_user), class: "SideBar__btn" do
           = icon('far', 'edit')
         =link_to edit_user_path(current_user), class: "SideBar__btn" do
           = icon('fas', 'cog')
   .SideBar__contents
-    .SideBar__group
-      %p.GroupName techcamp
-      %p.message まだメッセージがありません
-  
+    - current_user.groups.each do |group|
+      .SideBar__group
+        = link_to '#' do
+          %p.GroupName
+            = group.name
+          %p.message まだメッセージがありません
