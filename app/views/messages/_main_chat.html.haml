@@ -1,26 +1,33 @@
 .MainChat
   .MainChat__header
     .MainChat__leftbox
-      %p.CurrentGroup test
+      %p.CurrentGroup
+        = @group[:name]
       %ul.MainChat__MemberList
-        %li.MainChat__Member: Member：
-        %li.MainChat__name masa
-    = link_to "#", class: "MainChat__edit" do
+        %li.MainChat__Member Member：
+        - @group.users.each do |user|
+          %li.MainChat__name
+            = user.name
+          
+    = link_to edit_group_path(@group), class: "MainChat__edit" do
       Edit
   .MainChat__contents
     .MainChat__MessageBox
       .MessageInfo
-        %p.MessageInfo__name masa
-        %p.MessageInfo__date 2019/11/20(Wed) 17:43:01
-      .MessageContent おはよう！
+        %p.MessageInfo__name
+        %p.MessageInfo__date
+      .MessageContent
+        =render @messages
       
 
-  .Form
-    %form.Form__contents
-      .inputBox
-        %input.Form__inputText{ placeholder: "type a message", type: "text"}
-        %label{class: "inputBox__image"}
-          = icon('fas', 'image', class: "icon")
-          %input.Form__file{type: "file"}
-      %input.Form__submitBtn{type: "submit", value: "Send"}
+  .Footer
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form__contents
+        .inputBox
+          = f.text_field :content, class: 'Form__inputText', placeholder: 'type a message'
+          = f.label :image, class: 'inputBox__image' do
+            = icon('far', 'image', class: 'icon')
+            =f.file_field :image, class: 'Form__file'
+        = f.submit 'Send', class: 'Form__submitBtn'
+
     
