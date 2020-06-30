@@ -17,9 +17,8 @@
         %p.MessageInfo__name
         %p.MessageInfo__date
       .MessageContent
-        =render @messages
+        = render @messages
       
-
   .Footer
     = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__contents
